@@ -13,7 +13,14 @@
 <meta property="og:image" content="https://prumotrabalhista.com.br/image.jpg">
 <meta property="og:url" content="https://prumotrabalhista.com.br/">
 
-<!-- GOOGLE TAG (GA4 / Google Ads): cole aqui o snippet gtag.js da sua conta -->
+<!-- Google tag (gtag.js) - Google Ads AW-11027264930 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11027264930"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-11027264930');
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -307,7 +314,10 @@
 
 <script>
   // Conversões: dispara evento no gtag (se instalado) em todo clique de WhatsApp/CTA
-  function track(name){ try{ if(window.gtag){ gtag('event','generate_lead',{method:name}); } }catch(e){} }
+  function track(name){ try{ if(window.gtag){
+    gtag('event','generate_lead',{method:name});
+    gtag('event','conversion',{'send_to':'AW-11027264930/2HIhCP33u9UcEKLrmoop'});
+  } }catch(e){} }
   document.querySelectorAll('[data-conv]').forEach(function(el){
     el.addEventListener('click',function(){ track(el.dataset.conv); });
   });
@@ -320,6 +330,7 @@
       '*Empresa/cidade:* '+encodeURIComponent(emp)+'%0A'+
       '*Funcionários:* '+encodeURIComponent(document.getElementById('func').value)+'%0A'+
       '*Assunto:* '+encodeURIComponent(document.getElementById('assunto').value);
+    track('formulario');
     window.open('https://wa.me/5532998565055?text='+msg,'_blank');
   });
 </script>
